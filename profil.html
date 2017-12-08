@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeRoll</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- sytyle.css-->
+    <link href="bootstrap/css/style.css" type="text/css" rel="stylesheet">
+    <!-- Font Awesome-->
+	   <!-- Bibliothèque-->
+<script src="bootstrap/js/moment.js"></script>
+<script src="bootstrap/js/momentloc.js"></script>
+	<!-- Font Awesome-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<!-- Calendrier -->	
+	  <link href="bootstrap/css/bootstrap-datepicker.css" rel="stylesheet">
+	  <link href="bootstrap/css/jquery-ui.css" rel="stylesheet">
+	  <script type="text/javascript" src="js/test.js"></script>
+  </head>
+
+  <!-- Body -->
+  <body>
+      
+<!-- La navbar en mode connecté elle sera affiché que si l'user est conn(j'ai récup celle de youssef dans utlisateurconn.html)-->
+
+      <!-- Première partie de la page-->
+	    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="usernav">
+      
+      <!-- La classe navbar-fixed-top impose la présence de la classe container ou container-fluid.-->
+        <div class="container">
+        <!-- Le titre doit être inclus dans une classe navbar-header pour avoir un affichage correct sur les mobiles.-->
+             <div class="navbar-header" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <!--  Apparaître un titre avec des caractères plus visibles avec la classe navbar-brand -->
+                <a class="navbar-brand" href="#"><i class="fa fa-car"></i>&nbsp; WeRoll</a>
+             </div>
+             <div class="navbar-collapse collapse">
+             <!-- Les classes nav et navbar-nav doivent être utilisées avec une balise <ul>. Tous les items de navigation apparaissent alors avec des balises <li>. L'item actif est repéré avec la classe active(gris). Un item désactivé est défini avec la classe disabled. Voici à la figure suivante un aperçu de la barre-->
+                <ul class="nav navbar-nav navbar-right">
+                  <li ><a href="index_con.html">Accueil</a></li>
+					<li><a href="proposer_trajet.html"> proposer un trajet <i class=\"glyphicon glyphicon-indent-left\"></i></button></a></li>
+				  <li class="active"><a href="profil.html"  onclick="prof()" id="TBD">Tableau de Bord</a></li>
+                  <li><a href="#pro"  data-toggle="modal" >
+				 <span class="glyphicon glyphicon-user"></span> connecté
+                     </a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-chevron-down"></i>
+                    </a>
+                   <ul class="dropdown-menu">
+                        <li><a href="profil.html">Tableau de bord</a></li>
+                        <li><a href="profil.html#voiture">Voitures</a></li>
+                        <li><a href="#">Avis</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.html" onclick="deco()">Se déconnecter</a></li>
+                      </ul>
+                </li>
+
+                </ul>
+             </div>
+        </div>
+      </div>
+	  <!-- Fin de la navbar en mode connecté-->
+	  <!--profil en navbar modal-->
+	  <div class="modal fade" id="pro" role="dialog">
+       <div class="modal-dialog">
+          <div class="modal-content">
+
+              <form class="form-horizontal" role="form" method="POST" action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <center><h4 class="modal-title" id="myModalLabel">Résumé du profil</h4></center>
+                </div>
+                <div class="model-body">
+                    <center>
+                    <img src="img/pro.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <h3 class="media-heading"><strong><SCRIPT LANGUAGE="Javascript">
+					<!--
+						document.write(userName());
+						//-->
+		</SCRIPT></strong></h3>
+                    <span>
+					<SCRIPT LANGUAGE="Javascript">
+					<!--
+						document.write(age());
+						//-->
+					</SCRIPT> 
+					</span>
+                        <i class="fi-no-smoking "></i>
+                        <i class="fi-no-dogs"></i>
+                        <i class="fa fa-music" aria-hidden="true"></i>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-left">
+                      <ul  class="list-group">
+                       <a class="list-group-item">Voyage Effectuer<span class="badge"> 25</span></a>
+                       <a class="list-group-item">Voyage proposé <span class="badge">18</span></a>
+                      </ul>
+                    </p>
+                    <br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                    <button type="button"  href="profil.html" class="btn btn-default" data-dismiss="modal"> Modifier le profile</button>
+                    </center>
+                </div>
+              </form>
+
+          </div>
+       </div>
+      </div>
+	  <!-- Fin de la navbar en mode connecté-->
+      <!-- Fin du navbar -->
+      <!-- classe jumbotron pour mettre en valeur des contenus importants pour nitre site web ! -->
+      <div class="container">
+	      <div class="jumbotron" >
+
+          <ul class="nav nav-pills">
+			<li class="active"><a href="#TDB" data-toggle="tab" aria-expanded="true">Tableau de bord</a></li>
+            <li class=""><a href="#reservation" data-toggle="tab" aria-expanded="false">Vos réservations</a></li>			
+			<li class=""><a href="#annonce" data-toggle="tab" aria-expanded="false">Vos annonces</a></li>
+            <li class=""><a href="#Evaluations" data-toggle="tab" aria-expanded="false">Evaluations</a></li>
+			<li class=""><a href="#argent" data-toggle="tab" aria-expanded="false">Argent</a></li>
+          </ul>
+
+		   <div class="tab-content">
+<!-- Tableau de Bord -->
+		   <div class="tab-pane fade active in" id="TDB">
+              <div class="well">		
+			  <h4><span class="label-def col-sm-offset-4">Résumé du profile:</span></h4>
+			  <br>
+			<aside class="col-sm-4">
+				<div class="panel panel-info" >
+					<div class="panel-heading">
+
+						<h3 class="panel-title">Informations:</h3>
+						
+
+					</div>
+				<ul  class="nav nav-stacked">
+				 <a class="list-group-item"  href="#profil" data-toggle="tab" aria-expanded="true">Profile <span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+				 <a class="list-group-item" href="#information" data-toggle="tab" aria-expanded="false">Modification Profile<span class="glyphicon glyphicon-chevron-right pull-right"></span></a>
+				 <a class="list-group-item" href="#voiture" data-toggle="tab" aria-expanded="false"> Voitures
+					<span class="badge">
+		<SCRIPT LANGUAGE="Javascript">
+					<!--
+						document.write(list().length);
+						//-->
+		</SCRIPT>
+					</span>
+				</a>
+				 <a class="list-group-item" href="#preferences" data-toggle="tab" aria-expanded="false">Preferences</a>
+				</ul>
+				</div>
+			</aside>
+			
+			
+		 
+		 <div class="tab-content">
+		 <!--Profil -->
+				<div class="tab-pane fade active in" id="profil">
+				<div class="row">	
+					<div class="col-sm-2">
+					<a href="/membre/profil/lgg8woV1pJ5r-KYZNMUUMA">
+					<img src="img/pro.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle">
+					</a>
+					</div>
+					<div class="col-sm-4">
+					Nom:
+<SCRIPT LANGUAGE="Javascript">
+					<!--
+						document.write(firstName());
+						//-->
+		</SCRIPT>
+		
+		<br>
+		Prenom:
+<SCRIPT LANGUAGE="Javascript">
+					<!--
+						document.write(lastName());
+						//-->
+		</SCRIPT>
+					
+		<br>Age:
+		<SCRIPT LANGUAGE="Javascript">
+					<!--
+						document.write(age());
+						//-->
+		</SCRIPT><br>
+					</div>
+					
+					<div class="col-sm-4">
+				<ul  class="list-group">
+				 <a class="list-group-item">Voyage Effectuer<span class="badge"> 25</span></a>
+				 <a class="list-group-item">Voyage proposé <span class="badge">18</span></a>
+				</ul>
+					</div>
+	
+
+<div class="row">
+
+					<div class="col-sm-offset-6 row">
+						<a class="btn btn-info btn-lg" role="button" onclick="retprof()">Voir votre profil public<span class="glyphicon glyphicon glyphicon-eye-open"></span></a>
+						
+					
+						<a class="btn btn-info btn-lg" role="button">Modifier votre profil<span class="glyphicon glyphicon glyphicon-hand-right"></span></a>
+					</div>
+</div>					
+
+<div class="col-sm-offset-5 row">
+<div class="container">
+  <div class="progress">
+    <div class="progress-bar progress-bar-success" id="progress-bar-success">Excelent</div>
+    <div class="progress-bar progress-bar-warning" id="progress-bar-warning">Bon</div>
+    <div class="progress-bar progress-bar-danger"id="progress-bar-danger">Moyen</div>
+  </div>
+  
+</div>
+<div class="col-sm-offset-3 row">
+					
+						<a class="btn btn-info btn-lg" role="button" id="eval">Voir votre Evaluation<span class="glyphicon glyphicon glyphicon-stats"></i></span></a>
+					</div>
+							</div>						
+					<br>
+					</div>
+					
+									</div>
+									
+
+
+<!--Voiture-->
+				<div class="tab-pane fade" id="voiture">
+				<div class="row">	
+			<div class="col-sm-7">
+          		
+                  
+            <table class="table table-borderless table-condensed table-hover">
+              <div class="panel-heading"> 
+                <h3 class="panel-title">Listes des voiture</h3>
+              </div>
+              <thead>
+                <tr>
+                  <th>Marque</th>
+                  <th>Modèle</th>
+				  <th>Energie</th>
+				  <th>Emission CO2</th>
+				  <th>Designation commerciale</th>
+				  <th>supprimer</th>
+				  <th></th>
+				 </tr>
+              </thead>
+              <tbody>
+			  
+<!--Affichage de la liste des vehicules ajouter par l'utilisateur-->
+				
+				<SCRIPT LANGUAGE="Javascript">
+				  
+					<!--
+						for (var i=0; i<list().length; i++) {
+						document.write("<tr>");
+						document.write("<td>"+list()[i].mark +"</td><td>"+list()[i].model +"</td> <td>"+list()[i].fuel +"</td><td>"+list()[i].carbon_emissons+"</td><td>"+list()[i].commercial_designation+"</td> <td><img src=\"img/supp.jpg\" id=\"btsupp"+i+"\" onclick=\"supp_voit(event);\" name=\"aboutme\" width=\"40\" height=\"40\" border=\"0\" class=\"img-circle\" style=\"cursor:pointer;\"></td>");
+						document.write("</tr>");
+	
+							}
+						
+						//-->
+		</SCRIPT>
+             
+                
+              </tbody>
+            </table>
+          
+        </div>						
+					
+					
+					</div>
+					<div class="col-sm-offset-6 row">
+						<a class="btn btn-info btn-lg" href="#Modal_voit" role="button" data-toggle="modal" >Ajouter une voiture<span class="glyphicon glyphicon glyphicon-eye-open"></span></a>
+						 
+						</div>
+						
+					<br>
+									</div>
+									
+			<!--Modal ajout voiture-->
+			<div class="modal fade" id="Modal_voit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Ajouter une voiture </h4>
+            </div>
+            <div class="modal-body">
+			<form id="modif_voit" class="form-horizontal" role="form" method="POST" action="">
+			
+			<label for="name" class="cols-sm-2 control-label">Marque de la voiture: </label>
+              <div class="">
+                <div class="input-group">
+                  <SELECT id="marque" size="1">
+<!--Ajouter les marques dans le select-->
+				  <SCRIPT LANGUAGE="Javascript">
+				  <!--Consomation du web service dans une liste déffilante-->
+					<!--
+					var chaine=listMark();
+					var reg=new RegExp("[ ,;]+", "g");
+					var tableau=chaine.split(reg);
+						for (var i=0; i<tableau.length; i++) {
+						document.write("<OPTION onclick=\"markParVoit()\" value="+tableau[i]+">"+ tableau[i]);
+							}
+							
+						//-->
+		</SCRIPT>
+				  </SELECT>
+                </div>
+				
+				
+              </div>
+			  
+			  <label for="name" class="cols-sm-2 control-label">Modèle Voiture: </label>
+              <div class="">
+                <div class="input-group">
+                  <SELECT id="model" size="1">
+				 
+				  </SELECT>
+                </div>
+				</div>
+				
+				<label for="name" class="cols-sm-2 control-label">Désignation commercial: </label>
+              <div class="">
+                <div class="input-group">
+                  <SELECT id="design" size="1">
+				
+				  </SELECT>
+                </div>
+				</div>
+				
+				<label for="name" class="cols-sm-2 control-label">Carburant: </label>
+              <div class="">
+                <div class="input-group">
+                  <SELECT id="fuel" size="1">
+				
+				  </SELECT>
+                </div>
+				</div> 
+				
+				<label for="name" class="cols-sm-2 control-label">est-elle hybride : </label>
+              <div class="">
+                <div class="input-group">
+                  <SELECT id="hybrid" size="1">
+				
+				  </SELECT>
+                </div>
+				</div>
+				
+				<label for="name" class="cols-sm-2 control-label">Emission CO2: </label>
+              <div class="">
+                <div class="input-group">
+                  <SELECT id="co2" size="1">
+				
+				  </SELECT>
+                </div>
+				</div>			
+             </div>
+			
+		             <h4>
+
+               Vous Trouvez pas votre voiture ?  <br>
+                  <a href="ajouter_voit.html">Ajouter la ici<span class="glyphicon glyphicon-chevron-right"></span> </a> </h4>
+           
+			<div class="form-group ">
+              <input type="button" onclick="ajout_voit()" target="_blank" id="bt" value="Ajouter une voiture" class="btn btn-primary  btn-block login-button">
+        </div>
+			</form>                       
+ 
+            </div>
+        </div>
+		</div>
+														
+															
+			<!--Informations-->
+					
+					<div class="tab-pane" id="information">
+				<div class="row">	
+					
+					<div class="col-sm-7">
+					
+		
+  <div class="panel-heading">Informations personnelles</div>
+<form class="well" id="registration-form">
+       
+            <div class="form-group">
+              <label for="name" class="cols-sm-2 control-label">Nom</label>
+              <div class="">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="firstNameP" id="firstNameP"  placeholder="Nom" value="" required/>
+                </div>
+              </div>
+            </div>
+        
+            
+            <div class="form-group">
+              <label for="name" class="cols-sm-2 control-label">Prénom</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="lastNameP" id="lastNameP" value="" placeholder="Prénom" required/>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="cols-sm-2 control-label">Date de naissance</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                  <input type="date" class="form-control" name="birthDateP" id="birthDateP" required/>
+                </div>
+              </div>
+            </div>
+        
+        
+            <div class="form-group">
+              <label for="email" class="cols-sm-2 control-label">Username</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="username" id="usernameP"  placeholder="Username (min 4 caractères)" required/>
+                </div>
+              </div>
+            </div>
+        <div class="form-group ">
+              <input type="button" onclick="modprof()" target="_blank" id="bt" value="Modifier" class="btn btn-primary  btn-block login-button">
+        </div>
+    </form>
+
+
+      </div>
+					</div>
+					
+					
+
+
+
+											
+					</br>
+					</div>
+					
+					
+	<!--Preferences-->				
+						<div class="tab-pane fade" id="preferences">
+				<div class="row">	
+			<div class="col-sm-7">
+			<table class="table table-borderless table-condensed table-hover">
+              <div class="panel-heading"> 
+              </div>
+              <tbody>
+                <tr>
+                  <td><h2><i class="fa fa-comments" aria-hidden="true"></i>
+Tchatche</h2></td>
+                  <td>
+<!--Choisir une des images tout dépend de la réponse du WS -->
+						<SCRIPT LANGUAGE="Javascript">
+						<!--
+						if(chatting()=="true"){
+						document.write("<img src=\"img/yes.jpg\" name=\"aboutme\" width=\"50\" height=\"50\" border=\"0\" class=\"img-circle\">");
+						}else{document.write("<img src=\"img/no.jpg\" name=\"aboutme\" width=\"50\" height=\"50\" border=\"0\" class=\"img-circle\">");}//-->
+						</SCRIPT>
+				  
+				  </td>
+				    
+                </tr>
+				<tr>
+<!--idem-->
+				  <td><h2><i class="fa fa-paw" aria-hidden="true"></i>Animaux</h2></td>
+                  <td>
+						<SCRIPT LANGUAGE="Javascript">
+						<!--
+						
+						if(animals()=="true"){
+						document.write("<img src=\"img/yes.jpg\" name=\"aboutme\" width=\"50\" height=\"50\" border=\"0\" class=\"img-circle\">");
+						}else{document.write("<img src=\"img/no.jpg\" name=\"aboutme\" width=\"50\" height=\"50\" border=\"0\" class=\"img-circle\">");}
+						//-->
+						</SCRIPT>
+				  </td>				    
+				  
+                </tr>
+				<tr>
+                  
+				  <td><h2><i class="fi-no-smoking"></i>Cigarette</h2></td>
+                  <td>
+<!--idem-->
+				  <SCRIPT LANGUAGE="Javascript">
+						<!--
+						
+						if(smoking()=="true"){
+						document.write("<img src=\"img/yes.jpg\" name=\"aboutme\" width=\"50\" height=\"50\" border=\"0\" class=\"img-circle\">");
+						}else{document.write("<img src=\"img/no.jpg\" name=\"aboutme\" width=\"50\" height=\"50\" border=\"0\" class=\"img-circle\">");}
+						//-->
+						</SCRIPT>
+				  
+				  </td>				    
+				  
+                </tr>
+				
+				<tr>
+                  <td><h2><i class="fa fa-music" aria-hidden="true"></i>Musique</h2></td>
+                  <td>
+<!--idem-->			
+				<SCRIPT LANGUAGE="Javascript">
+						<!--						
+						if(music()=="true"){
+						document.write("<img src=\"img/yes.jpg\" name=\"aboutme\" width=\"50\" height=\"50\" border=\"0\" class=\"img-circle\">");
+						}else{document.write("<img src=\"img/no.jpg\" name=\"aboutme\" width=\"50\" height=\"50\" border=\"0\" class=\"img-circle\">");}
+						//-->
+						</SCRIPT>
+				</td>
+				    
+                </tr>
+                
+              </tbody>
+            </table>
+          
+			</div>						
+					
+					
+					</div>
+					<div class="col-sm-offset-6 row">
+						<a class="btn btn-info btn-lg" href="#Modal_pref" role="button" data-toggle="modal" >Modifier Mes Preference<span class="glyphicon glyphicon glyphicon-eye-open"></span></a>
+					</div>
+					<br>
+					 
+									</div>
+									</div>
+					</div>
+			</div>
+			
+	<!-- Modal_prference -->
+	<div class="modal fade" id="Modal_pref" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Preferences</h4>
+            </div>
+            <div class="modal-body">
+			<form id="formRegister" class="form-horizontal" role="form" method="POST" action="">
+			<p>
+				<input id="test1" type="checkbox" name="test1">
+				<label for="test1">
+				<span class="ui"></span>
+				Tchatche
+				</label>
+			</p>
+			<p>
+				<input id="test2" type="checkbox" name="test2">
+				<label for="test2">
+				<span class="ui"></span>
+				Animaux
+				</label>
+			</p>
+			<p>
+				<input id="test3" type="checkbox" name="test3">
+				<label for="test3">
+				<span class="ui"></span>
+				Cigarette
+				</label>
+			</p>
+			<p>
+				<input id="test4" type="checkbox" name="test4">
+				<label for="test4">
+				<span class="ui"></span>
+				Musique
+				</label>
+			</p>
+			<div class="form-group ">
+              <input type="button" href="#" onclick="modpref()" target="_blank" id="bt" value="Modifier" class="btn btn-primary  btn-block login-button">
+        </div>
+			</form>                       
+ 
+            </div>
+        </div>
+		</div>
+	</div>
+			
+	<!-- Réservation-->			
+				
+			<div class="tab-pane fade" id="reservation">
+
+			<ul class="nav nav-tabs">
+			<li class="active"><a href="#cours" data-toggle="tab" aria-expanded="true">En cours</a></li>
+            <li class=""><a href="#histo" data-toggle="tab" aria-expanded="false">Historique</a></li>
+			</ul>
+			<div class="tab-content">
+			<div class="tab-pane fade active in" id="cours">
+			<div class="well">
+					<h4><span class="label-def col-sm-offset-4">Reservation en cours</span></h4> 
+				
+				<div class="table-responsive">          
+			<table class="table table-borderless table-condensed table-hover">
+              <div class="panel-heading"> 
+                <h3 class="panel-title">Listes des Trajet Reserver</h3>
+              </div>
+              <thead>
+                <tr>
+                  <th>Départ</th>
+                  <th>Arrivée</th>
+				  <th>Date depart</th>
+				  <th>Estimation Arrivé</th>
+				  <th>Conducteur</th>
+				  <th>voiture</th>
+				<th>Conducteur</th>
+				<th>Prix</th>
+				<th>annuler</th>
+				 </tr>
+              </thead>
+              <tbody>
+			  
+<!--Affichage de la liste des vehicules ajouter par l'utilisateur-->
+				
+				<SCRIPT LANGUAGE="Javascript">
+					<!--
+					date_act=new Date();
+					
+						for (var i=0; i<list_trajet_reserver().length; i++) {
+						
+						if(new Date(moment(list_trajet_reserver()[i].departureDate).format("YYYY, MM, DD"))> date_act){
+						
+						document.write("<tr>");
+						document.write("<td>"+list_trajet_reserver()[i].departure.description+"</td><td>"+list_trajet_reserver()[i].arrival.description+"</td> <td>"+moment(list_trajet_reserver()[i].departureDate).format('DD/MM/YYYY à HH:MM') +"</td><td>"+ list_trajet_reserver()[i].estimatedArrivalDate+"</td><td>"+list_trajet_reserver()[i].driver.username+"</td><td>"+list_trajet_reserver()[i].car.model+"</td><td>"+ list_trajet_reserver()[i].driver.firstName+" "+ list_trajet_reserver()[i].driver.lastName+"</td><td>"+list_trajet_reserver()[i].price+" €");
+						document.write("</td><td> <a class=\"btn btn-danger\" id=\"trajet"+i+"\" onclick=\"annuler_reservation(event)\"  data-dismiss=\"modal\" role=\"button\">Annuler</a>");
+						document.write("</tr>");
+						}
+						}
+						//-->
+		</SCRIPT>
+             
+                
+              </tbody>
+            </table>
+  </div>
+             				
+					</br>
+					</div>
+					</div>
+					
+			<div class="tab-pane fade in" id="histo">
+			<div class="well">
+					<h4><span class="label-def col-sm-offset-4">historique</span></h4> 
+				
+				<div class="table-responsive">          
+			<table class="table table-borderless table-condensed table-hover">
+              <div class="panel-heading"> 
+                <h3 class="panel-title">Listes des Trajet Reserver</h3>
+              </div>
+              <thead>
+                <tr>
+                  <th>Départ</th>
+                  <th>Arrivée</th>
+				  <th>Date depart</th>
+				  <th>Estimation Arrivé</th>
+				  <th>Conducteur</th>
+				  <th>voiture</th>
+				<th>Conducteur</th>
+				<th>Prix</th>
+				<th>note</th>
+				 </tr>
+              </thead>
+              <tbody>
+			  
+<!--Affichage de la liste des vehicules ajouter par l'utilisateur-->
+				
+				<SCRIPT LANGUAGE="Javascript">
+					<!--
+					
+						
+						for (var i=0; i<list_trajet_reserver().length; i++) {
+						if(new Date(moment(list_trajet_reserver()[i].departureDate).format("YYYY, MM, DD"))< date_act){
+						document.write("<tr>");
+						document.write("<td>"+list_trajet_reserver()[i].departure.description+"</td><td>"+list_trajet_reserver()[i].arrival.description+"</td> <td>"+moment(list_trajet_reserver()[i].departureDate).format('DD/MM/YYYY à HH:MM') +"</td><td>"+ list_trajet_reserver()[i].estimatedArrivalDate+"</td><td>"+list_trajet_reserver()[i].driver.username+"</td><td>"+list_trajet_reserver()[i].car.model+"</td><td>"+ list_trajet_reserver()[i].driver.firstName+" "+ list_trajet_reserver()[i].driver.lastName+"</td><td>"+list_trajet_reserver()[i].price+" €");
+						document.write("</td><td> 4.5");
+						document.write("</tr>");
+						}
+	}						
+						//-->
+		</SCRIPT>
+             
+                
+              </tbody>
+            </table>
+  </div>
+
+											
+					</br>
+					</div>
+					</div>		
+				</div>	
+				</div> 
+				
+			<div class="tab-pane fade" id="annonce">
+
+			<ul class="nav nav-tabs">
+			<li class="active"><a href="#venir" data-toggle="tab" aria-expanded="true">Trajet à venir</a></li>
+            <li class=""><a href="#archive" data-toggle="tab" aria-expanded="false">Trajet Archivé</a></li>
+			</ul>
+			<div class="tab-content">
+			<div class="tab-pane fade active in" id="venir">
+			<div class="well">
+					<h4><span class="label-def col-sm-offset-4">Trajets</span></h4> 
+				
+				<div class="table-responsive">          
+		<table class="table table-borderless table-condensed table-hover">
+              <div class="panel-heading"> 
+                <h3 class="panel-title">Listes des Trajet</h3>
+              </div>
+              <thead>
+                <tr>
+                  <th>Départ</th>
+                  <th>Arrivée</th>
+				  <th>Date départ</th>
+				  <th>Places</th>
+				  <th>Conducteur</th>
+				  <th>Detail du trajet</th>
+				
+				 </tr>
+              </thead>
+              <tbody>
+			  
+<!--Affichage de la liste des vehicules ajouter par l'utilisateur-->
+				
+				<SCRIPT LANGUAGE="Javascript">
+				  
+					<!--
+						for (var i=0; i<list_trajet().length; i++) {
+						if(list_trajet()[i].departureDate>date_act){
+						document.write("<tr>");
+						document.write("<td>"+list_trajet()[i].departure.description+"</td><td>"+list_trajet()[i].arrival.description+"</td> <td>"+moment(list_trajet()[i].departureDate).format('DD/MM/YYYY à HH:MM')+"</td> <td>"+list_trajet()[i].maxSeats+"</td> <td>"+list_trajet()[i].driver.username+"</td><td> <a class=\"btn btn-info\" id=\"detail"+i+"\" onclick=\"detail_trajet(event)\"  data-dismiss=\"modal\" role=\"button\">Detail</a>");
+						document.write("</tr>");
+	}
+							}
+						
+						//-->
+		</SCRIPT>
+             
+                
+              </tbody>
+            </table>
+			
+  </div>
+
+											
+					</br>
+					</div>
+					</div>
+					
+			<div class="tab-pane fade in" id="archive">
+			<div class="well">
+					<h4><span class="label-def col-sm-offset-4">Trajets</span></h4> 
+				
+				<div class="table-responsive">          
+	<table class="table table-borderless table-condensed table-hover">
+              <div class="panel-heading"> 
+                <h3 class="panel-title">Listes des Trajet proposé </h3>
+              </div>
+              <thead>
+                <tr>
+                  <th>Départ</th>
+                  <th>Arrivée</th>
+				  <th>Emission CO2</th>
+				  <th>Conducteur</th>
+				  <th>voiture</th>
+				 
+				
+				 </tr>
+              </thead>
+              <tbody>
+			  
+<!--Affichage de la liste des vehicules ajouter par l'utilisateur-->
+				
+				<SCRIPT LANGUAGE="Javascript">
+				  
+					<!--
+						for (var i=0; i<list_trajet_reserver().length; i++) {
+						document.write("<tr>");
+						document.write("<td>"+list_trajet_reserver()[i].departure.description+"</td><td>"+list_trajet_reserver()[i].arrival.description+"</td> <td>"+list_trajet_reserver()[i].emissionCO2.inGrams +"</td><td>"+list_trajet_reserver()[i].driver.username+"</td><td>"+list_trajet_reserver[i].car.model+"</td>");
+							document.write("</tr>");
+	
+							}
+						
+						//-->
+		</SCRIPT>
+             
+                
+              </tbody>
+            </table>
+  </div>
+
+											
+					</br>
+					</div>
+					</div>		
+				</div>	
+				</div> 
+
+
+<!--messages-->				
+		<div class="tab-pane fade" id="Evaluations">
+              <div class="well">	
+			  
+			<ul class="nav nav-tabs">
+			<li class="active"><a href="#effectues" data-toggle="tab" aria-expanded="true">Evalué</a></li>
+            <li class=""><a href="#non-effect" data-toggle="tab" aria-expanded="false">non Evalué</a></li>
+			</ul>
+			<div class="tab-content">
+			<div class="tab-pane fade active in" id="effectues">
+			<div class="well">
+					<h4><span class="label-def col-sm-offset-4">Reservation en cours</span></h4> 
+				
+				<div class="table-responsive">          
+			<table class="table table-borderless table-condensed table-hover">
+              <div class="panel-heading"> 
+                <h3 class="panel-title">Listes des Trajet Reserver</h3>
+              </div>
+              <thead>
+                <tr>
+                  <th>Départ</th>
+                  <th>Arrivée</th>
+				  <th>Date depart</th>
+				  <th>Estimation Arrivé</th>
+				  <th>Conducteur</th>
+				  <th>voiture</th>
+				<th>Conducteur</th>
+				<th>Prix</th>
+				<th>Action</th>
+				 </tr>
+              </thead>
+              <tbody>
+			  
+<!--Affichage de la liste des vehicules ajouter par l'utilisateur-->
+				
+				<SCRIPT LANGUAGE="Javascript">
+				  
+					<!--
+						for (var i=0; i<list_trajet_reserver().length; i++) {
+						document.write("<tr>");
+						document.write("<td>"+list_trajet_reserver()[i].departure.description+"</td><td>"+list_trajet_reserver()[i].arrival.description+"</td> <td>"+list_trajet_reserver()[i].departureDate +"</td><td>"+ list_trajet_reserver()[i].estimatedArrivalDate+"</td><td>"+list_trajet_reserver()[i].driver.username+"</td><td>"+list_trajet_reserver()[i].car.model+"</td><td>"+ list_trajet_reserver()[i].driver.firstName+" "+ list_trajet_reserver()[i].driver.lastName+"</td><td>"+list_trajet_reserver()[i].price+" €");
+						document.write("</td><td> <a class=\"btn btn-info\" id=\"detail"+i+"\" onclick=\"detail_trajet(event)\"  data-dismiss=\"modal\" role=\"button\">Detail</a>");
+							document.write("</tr>");
+	
+							}
+						
+						//-->
+				</SCRIPT>
+             
+                
+				</tbody>
+				</table>
+				</div>
+ 
+             				
+					</br>
+					</div>
+					</div>
+					
+			<div class="tab-pane fade in" id="non-effect">
+			<div class="well">
+					<h4><span class="label-def col-sm-offset-4">Trajet non evalués</span></h4> 
+				
+				<div class="table-responsive">          
+			<table class="table">
+			<thead>
+	   <tr>
+        <th>Ville Départ</th>
+        <th>Destination</th>
+        <th>Date</th>
+        <th>Heure de départ</th>
+        <th>Place réservé</th>
+		<th>Montant</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+		<td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+	  <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+	  <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+											
+					</br>
+					</div>
+					</div>
+
+		 
+					Affichage des Messages ici
+			</div>
+		</div>
+		</div>
+		<!--Argent-->				
+		<div class="tab-pane fade" id="argent">
+              <div class="well">		
+			
+			
+
+		 
+					Affichage des Messages ici
+			</div>
+		</div>
+		</div> <!-- fin de la tab-content -->
+		
+	</div>  <!-- Div jubutron -->
+ 
+	</div>	<!-- Div Section -->
+				
+							
+
+      <!-- Footer -->
+      <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+          <div class="container">
+            <div class="navbar-text pull-left">
+             <p>2017 Copyright &copy; AppCov.</p>
+            </div>
+            <!-- Ajout des icones avec Font awesome-->
+	            <div class="navbar-text pull-right">
+                <a href="#"><i class="fa fa-android fa-2x"></i></a>
+	            	<a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+	            	<a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+	            	<a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+	            </div>
+          </div>
+      </div>
+
+       
+      
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->     
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<!-- Auto Complétion -->	
+ <!-- Bootstrap validator js-->
+  <script src="js/bootstrapValidator.min.js"></script>
+  
+   <!-- faire apparaitre le reste du formulaire-->
+  <script>
+$(document).ready(function(){
+    $("#marque").click(function(){
+        $("#rest_form").show();
+    });
+});
+</script>
+
+  <script>
+
+  function exp(nb) {
+
+  nb=1;
+ 
+if(nb <= 2){
+ nb=(nb+1)*9;
+$("#progress-bar-danger").css("width", nb + "%");
+			
+			setTimeout(function() {
+
+        exp(nb+200);
+
+      }, 100);
+	  }else{
+	  
+if(nb <= 3.5){
+ nb=(nb+1)*13;
+$("#progress-bar-warning").css("width", nb + "%");
+			
+			setTimeout(function() {
+
+        exp(nb+200);
+
+      }, 100);
+	  }else
+	  {
+	  if(nb <= 5){
+ nb=(nb+1)*17;
+$("#progress-bar-success").css("width", nb + "%");
+			
+			setTimeout(function() {
+
+        exp(nb+200);
+
+      }, 100);
+	  }
+	  
+	  
+	  }
+	  
+	  
+	  }
+
+  
+
+  }
+
+$(function (){
+
+    $("#eval").click(function() {
+
+      exp(0);
+
+    });
+
+  });
+   $(function (){
+
+    $("#profil").click(function() {
+
+      exp(0);
+
+    });
+
+  });
+
+</script>
+<!-- Auto-comlétion -->
+<script src="bootstrap/js/bootstrap3-typeahead.js"></script>
+
+
+<!-- Pour que les variables persiste lors de la navigation -->
+<script type="text/javascript" src="js/test.js"></script>
+</body>
+</html>
+
+

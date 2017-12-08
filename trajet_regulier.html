@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeRoll</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- sytyle.css-->
+    <link href="bootstrap/css/style.css" type="text/css" rel="stylesheet">
+    <!-- Font Awesome-->
+	
+	<!-- Font Awesome-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<!-- Calendrier -->	
+	  <link href="bootstrap/css/bootstrap-datepicker.css" rel="stylesheet">
+	  <link href="bootstrap/css/jquery-ui.css" rel="stylesheet">
+	  <script type="text/javascript" src="js/test.js"></script>
+  </head>
+
+  <!-- Body -->
+  <body>
+      
+<!-- La navbar en mode connecté elle sera affiché que si l'user est conn(j'ai récup celle de youssef dans utlisateurconn.html)-->
+
+      <!-- Première partie de la page-->
+	    <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="usernav">
+      
+      <!-- La classe navbar-fixed-top impose la présence de la classe container ou container-fluid.-->
+        <div class="container">
+        <!-- Le titre doit être inclus dans une classe navbar-header pour avoir un affichage correct sur les mobiles.-->
+             <div class="navbar-header" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <!--  Apparaître un titre avec des caractères plus visibles avec la classe navbar-brand -->
+                <a class="navbar-brand" href="#"><i class="fa fa-car"></i>&nbsp; WeRoll</a>
+             </div>
+              <div class="navbar-collapse collapse">
+             <!-- Les classes nav et navbar-nav doivent être utilisées avec une balise <ul>. Tous les items de navigation apparaissent alors avec des balises <li>. L'item actif est repéré avec la classe active(gris). Un item désactivé est défini avec la classe disabled. Voici à la figure suivante un aperçu de la barre-->
+                <ul class="nav navbar-nav navbar-right">
+                  <li ><a href="index_con.html">Accueil</a></li>
+				 <li class="active"><a href="profil.html"  onclick="prof()" id="TBD">Tableau de Bord</a></li>
+					<li class="dropdown"><a " class="dropdown-toggle" data-toggle="dropdown"> proposer un trajet  <i class="fa fa-chevron-down"></i>
+                    </a>
+                   <ul class="dropdown-menu">
+                        <li><a href="proposer_trajet.html">Trajet ponctuel</a></li>
+                        <li><a href="trajet_regulier.html">Trajet régulier</a></li>
+                    
+					</ul>
+                </li>
+				 
+                  <li><a href="#pro"  data-toggle="modal" >
+				 <span class="glyphicon glyphicon-user"></span> connecté
+                     </a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-chevron-down"></i>
+                    </a>
+                   <ul class="dropdown-menu">
+                        <li><a href="profil.html">Tableau de bord</a></li>
+                        <li><a href="profil.html#voiture">Voitures</a></li>
+                        <li><a href="#">Avis</a></li>
+                        <li class="divider"></li>
+                        <li><a href="index.html" onclick="deco()">Se déconnecter</a></li>
+                      </ul>
+                </li>
+
+                </ul>
+             </div>
+        </div>
+      </div>
+	  <!-- Fin de la navbar en mode connecté-->
+	   <!--profil en navbar modal-->
+	  <div class="modal fade" id="pro" role="dialog">
+       <div class="modal-dialog">
+          <div class="modal-content">
+
+              <form class="form-horizontal" role="form" method="POST" action="#">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <center><h4 class="modal-title" id="myModalLabel">Résumé du profil</h4></center>
+                </div>
+                <div class="model-body">
+                    <center>
+                    <img src="img/pro.jpg" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <h3 class="media-heading"><strong><SCRIPT LANGUAGE="Javascript">
+					<!--
+						document.write(userName());
+						//-->
+		</SCRIPT></strong></h3>
+                    <span>
+					<SCRIPT LANGUAGE="Javascript">
+					<!--
+						document.write(age());
+						//-->
+					</SCRIPT> 
+					</span>
+                        <i class="fi-no-smoking "></i>
+                        <i class="fi-no-dogs"></i>
+                        <i class="fa fa-music" aria-hidden="true"></i>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-left">
+                      <ul  class="list-group">
+                       <a class="list-group-item">Voyage Effectuer<span class="badge"> 25</span></a>
+                       <a class="list-group-item">Voyage proposé <span class="badge">18</span></a>
+                      </ul>
+                    </p>
+                    <br>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <center>
+                    <button type="button"  href="profil.html" class="btn btn-default" data-dismiss="modal"> Modifier le profile</button>
+                    </center>
+                </div>
+              </form>
+
+          </div>
+       </div>
+      </div>
+    <!-- Formulaire d'ajout de trajet régulier -->
+<br>
+<br>
+<br>
+<div class="container">
+
+<div class="col-sm-offset-3 col-sm-6 ">
+    <form class="well" id="registration-form">
+      <h4><span class="glyphicon glyphicon-plus "></span> <span class="col-sm-offset-1 ">Proposez un trajet régulier</span></h4> 
+            <div class="form-group">
+              <label for="departurePlaceId" class="cols-sm-2 control-label">Départ</label>
+              <div class="">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="departurePlaceId"  id="departure"  placeholder="Ville de Départ" required/>
+				  
+                </div>
+              </div>
+            </div>
+        
+            
+            <div class="form-group">
+              <label for="arrivalPlaceId" class="cols-sm-2 control-label">Arrivée</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="arrivalPlaceId" id="arrival"  placeholder="Déstination " required/>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="name" class="cols-sm-2 control-label">Date de début des trajets</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                 
+				  <input type="date"  class="form-control" name="beginDateRange" id="beginDateRange" required>
+                </div>
+              </div>
+            </div>
+			
+         <div class="form-group">
+              <label for="name" class="cols-sm-2 control-label">Date de fin des trajets</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+                 
+				  <input type="date"  class="form-control" name="endDateRange" id="endDateRange" required>
+                </div>
+              </div>
+            </div>
+        <div class="form-group">
+              <label for="name" class="cols-sm-2 control-label">Heure de départ depuis le lieu de départ</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-time" aria-hidden="true"></i></span>
+                 
+				  <input type="time"  class="form-control" name="departureTimeFromDeparturePlace" id="departureTimeFromDeparturePlace" required>
+                </div>
+              </div>
+            </div>
+			<div class="form-group">
+              <label for="name" class="cols-sm-2 control-label">Heure de départ depuis le lieu d'arrivé</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-time" aria-hidden="true"></i></span>
+                 
+				  <input type="time"  class="form-control" name="departureTimeFromArrivalPlace" id="departureTimeFromArrivalPlace" required>
+                </div>
+              </div>
+            </div>
+			
+			<div class="form-group">
+              <label for="departureDaysFromDeparturePlace" class="cols-sm-2 control-label">Liste de jours correspendant au départ depuis le lieu de départ</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+                 
+				   <SELECT  type="text"  multiple class="form-control" name="departureDaysFromDeparturePlace" id="departureDaysFromDeparturePlace" >
+				
+        <option>MONDAY</option>
+        <option>TUESDAY</option>
+        <option>WEDNESDAY</option>
+        <option>THURSDAY</option>
+        <option>FRIDAY</option>
+      <option>SATURDAY</option>
+	  <option>SUNDAY</option>
+					</SELECT> 
+                </div>
+              </div>
+            </div>
+			<div class="form-group">
+              <label for="departureDaysFromArrivalPlace	" class="cols-sm-2 control-label">Liste de jours correspendant au départ depuis le lieu de d'arrivé</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+                 
+				   <SELECT name="departureDaysFromArrivalPlace	"  type="text"  multiple class="form-control" id="departureDaysFromArrivalPlace	" >
+				
+        <option>MONDAY</option>
+        <option>TUESDAY</option>
+        <option>WEDNESDAY</option>
+        <option>THURSDAY</option>
+        <option>FRIDAY</option>
+      <option>SATURDAY</option>
+	  <option>SUNDAY</option>
+					</SELECT> 
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="" class="cols-sm-2 control-label">Prix</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-euro" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="price" id="price"  placeholder="Le prix du trajet" required/>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="" class="cols-sm-2 control-label">Nombre de place</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                  <input type="text" class="form-control" name="maxSeats" id="maxSeats"  placeholder="Nombre de place" required/>
+                </div>
+              </div>
+            </div>
+ <div class="form-group">
+              <label for="" class="cols-sm-2 control-label">Type de bagage</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i  class="glyphicon glyphicon-briefcase" aria-hidden="true"></i></span>
+				  <SELECT name="nom" size="1" type="text" class="form-control" name="luggage" id="luggage" placeholder="Type de bagage">
+				  <Option>
+				  <OPTION  >LARGE
+					<OPTION>MEDIUM
+						<OPTION>SMALL
+
+					</SELECT> 
+                </div>
+              </div>
+            </div>
+			
+			 <div class="form-group">
+              <label for="" class="cols-sm-2 control-label">Véhicule</label>
+              <div class="cols-sm-10">
+                <div class="input-group">
+                  <span class="input-group-addon"><i  class="fa fa-car" aria-hidden="true"></i></span>
+				  <SELECT name="nom" size="1" type="text" class="form-control" name="vehicule"  id="carId" placeholder="Véhicule">
+				  <Option>
+				 
+
+					</SELECT> 
+                </div>
+              </div>
+            </div>
+			
+        <div class="form-group ">
+              <input type="button" onclick="auto()" target="_blank" id="bt" value ="Ajouter trajet" class="btn btn-primary  btn-block login-button">
+        </div>
+    </form>
+    </div>
+    </div>
+<!-- Footer -->    
+<footer>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-6 col-xs-12">
+    <a href="#"><i class="fa fa-android fa-2x"></i></a>
+    <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+    <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+    <a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+  </div>
+  <div class=" navbar-text pull-right">
+    <p>2017 Copyright &copy; WeRoll.</p>
+  </div> 
+  </div>
+  </div>
+</footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+     
+ <script src="bootstrap/js/bootstrap.min.js"></script>
+ <script type="text/javascript" src="js/test.js"></script>
+ <script type="text/javascript" src="js/compl.js"></script>
+    <!-- Bootstrap validator js-->
+  <script src="js/bootstrapValidator.min.js"></script>
+  <script type="text/javascript" src="js/testfor.js"></script>
+  </body>
+</html>

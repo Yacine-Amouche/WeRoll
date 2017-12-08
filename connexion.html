@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WeRoll</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- sytyle.css-->
+    <link href="bootstrap/css/style.css" type="text/css" rel="stylesheet">
+    <!-- Font Awesome-->
+	
+	<!-- Font Awesome-->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+	<!-- Calendrier -->	
+	  <link href="bootstrap/css/bootstrap-datepicker.css" rel="stylesheet">
+	  <link href="bootstrap/css/jquery-ui.css" rel="stylesheet">
+	  
+  </head>
+
+  <!-- Body -->
+  <body background="img/bouger.jpg">
+    <!-- navbar de l'index hors ligne-->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="indexnavbar">
+      
+      <!-- La classe navbar-fixed-top impose la présence de la classe container ou container-fluid.-->
+        <div class="container">
+        <!-- Le titre doit être inclus dans une classe navbar-header pour avoir un affichage correct sur les mobiles.-->
+             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <!--  Apparaître un titre avec des caractères plus visibles avec la classe navbar-brand -->
+                <a class="navbar-brand" href="#"><i class="fa fa-car"></i>&nbsp; WeRoll</a>
+             </div>
+             <div class="navbar-collapse collapse">
+             <!-- Les classes nav et navbar-nav doivent être utilisées avec une balise <ul>. Tous les items de navigation apparaissent alors avec des balises <li>. L'item actif est repéré avec la classe active(gris). Un item désactivé est défini avec la classe disabled. Voici à la figure suivante un aperçu de la barre-->
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="active"><a href="index.html">Accueil</a></li> 
+                  <li><a href="#connecter" data-toggle="modal">Connexion </a></li>
+                  <li><a href="inscription.html"> Inscription   <i class=\"glyphicon glyphicon-indent-left\"></i></button></a></li>
+                </ul>
+             </div>
+        </div>
+      </div>
+  <br>
+  <br><br><br>
+  <div class="container">
+	      <div class="well col-sm-offset-3 col-sm-6" >
+				<form class="form-horizontal" role="form" method="POST" action="">
+                <div class="modal-header">
+                <h4><span class="label-def col-sm-offset-4">Connexion</span></h4>
+                </div>
+                <div class="model-body">
+                   <!--Authentification-->
+                   <div class="form-group">
+                   <br/>
+                    <label for="contact-name" class="col-sm-2 control-label">Login</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="user" placeholder="Entrez votre login" name="username" required>
+                    </div>
+                   </div>
+                   <!--pass -->
+                   <div class="form-group">
+                    <label for="contact-email" class="col-sm-2 control-label">Password</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="pass" placeholder="********* " name="password" required >
+                    </div>
+                   </div>
+                </div>
+                <div class="modal-footer">
+                  <a class="btn btn-default" data-dismiss="modal" id="fermer">Fermer</a>
+                  <a id="suc"><a class="btn btn-primary"  onclick="connexion2();"  data-dismiss="modal" role="button"><span class="glyphicon glyphicon-log-in"></span>Se Connecté</a>
+                  <br/>
+                   Pas encore membre ? 
+                  <a href="inscription.html">Inscrivez-vous gratuitement </a>
+                </div>
+              </form>
+		</div>
+		</div>
+ <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+          <div class="container">
+            <div class="navbar-text pull-left">
+             <p>&copy; Université Blaise Pascal. Projet co-voiturage 2016-2017</p>
+            </div>
+            <!-- Ajout des icones avec Font awesome-->
+	            <div class="navbar-text pull-right">
+                <a href="#"><i class="fa fa-android fa-2x"></i></a>
+	            	<a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+	            	<a href="#"><i class="fa fa-twitter fa-2x"></i></a>
+	            	<a href="#"><i class="fa fa-google-plus fa-2x"></i></a>
+	            </div>
+          </div>
+      </div>
+
+       
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/test.js"></script>
+	<script type="text/javascript" src="js/auto.js"></script>
+<!-- Jquery-ui Calendrier -->	 
+  <script src="bootstrap/js/bootstrap-datepicker.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="bootstrap/js/jquery-ui.js"></script>
+	<script>
+	
+        $(function ($) {
+		$.datepicker.setDefaults($.datepicker.regional['fr']);
+            $('.datepicker').datepicker(
+			{
+		dateFormat: 'yy-mm-dd'
+			
+			});
+        });
+    </script>
+	
+  </body>
+</html>
